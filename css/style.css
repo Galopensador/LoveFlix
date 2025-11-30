@@ -1,0 +1,651 @@
+:root {
+            --bg: #050814;
+            --bg-soft: radial-gradient(circle at top, #1b1c30 0, #050814 55%);
+            --card-bg: #101525;
+            --card-bg-soft: linear-gradient(145deg, #101525, #181b2e);
+            --accent: #ff4b8b;
+            --accent-soft: #ff8ac1;
+            --text: #f5f5ff;
+            --muted: #a5a7c7;
+            --border-soft: rgba(255, 255, 255, 0.06);
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
+            --transition-fast: 0.18s ease-out;
+            --transition-med: 0.3s ease-out;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+            background: var(--bg-soft);
+            color: var(--text);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Barra superior estilo streaming */
+        header.topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 7vw;
+            backdrop-filter: blur(12px);
+            background: linear-gradient(to bottom,
+                    rgba(5, 8, 20, 0.92),
+                    rgba(5, 8, 20, 0.7),
+                    transparent);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+
+        .logo-main {
+            color: var(--accent);
+        }
+
+        .logo-sub {
+            color: var(--text);
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .tag-pill {
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent-soft);
+
+        }
+
+        main {
+            flex: 1;
+            padding: 12px 7vw 40px;
+        }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+            gap: 24px;
+            margin: 16px 0 30px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin: 0 0 10px;
+        }
+
+        .hero-text h1 span.highlight {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            color: var(--muted);
+            font-size: 0.95rem;
+            max-width: 460px;
+            line-height: 1.6;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .hero-badge {
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+        }
+
+        .hero-badge.heart {
+            color: var(--accent-soft);
+        }
+
+        .hero-card {
+            background: radial-gradient(circle at top, #2a233a, #101525);
+            border-radius: var(--radius-xl);
+            padding: 18px 18px 20px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-soft);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hero-card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .hero-card-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .hero-card-line {
+            width: 100%;
+            height: 1px;
+            margin: 10px 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 75, 139, 0.5), rgba(255, 255, 255, 0.1));
+        }
+
+        .hero-card-quote {
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .hero-card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* Temporadas */
+        .section-title {
+            font-size: 1.3rem;
+            margin: 18px 0 8px;
+        }
+
+        .section-subtitle {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .season-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px;
+        }
+
+        .season-card {
+            border: none;
+            outline: none;
+            background: rgba(11, 14, 30, 0.94);
+            border-radius: var(--radius-lg);
+            padding: 12px;
+            text-align: left;
+            color: inherit;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.55);
+            transition: transform var(--transition-med), box-shadow var(--transition-med);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .season-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+            border-color: rgba(255, 75, 139, 0.6);
+        }
+
+        .season-number {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            color: var(--muted);
+            letter-spacing: 0.12em;
+        }
+
+        .season-month {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .season-caption {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+
+        .season-chip {
+            margin-top: 6px;
+            font-size: 0.7rem;
+            color: var(--accent-soft);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Galeria */
+        .gallery {
+            margin-top: 26px;
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        #gallery-title {
+            font-size: 1.15rem;
+            margin: 0;
+        }
+
+        #gallery-subtitle {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            background: var(--card-bg-soft);
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+            min-height: 140px;
+        }
+
+        /* MINIATURAS: mostrar imagem inteira sem cortar */
+        .photo-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: contain;
+            /* mostra a imagem inteira */
+            background: rgba(0, 0, 0, 0.25);
+            padding: 6px;
+            display: block;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 75, 139, 0.7);
+        }
+
+        .photo-caption {
+            font-size: 0.78rem;
+            padding: 6px 9px 8px;
+            color: var(--muted);
+            text-align: left;
+        }
+
+        .empty-gallery {
+            font-size: 0.85rem;
+            color: var(--muted);
+            padding: 12px 0;
+        }
+
+        /* Lightbox (foto grande) */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.72);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 40;
+            padding: 20px;
+            backdrop-filter: blur(6px) saturate(120%);
+        }
+
+        .lightbox.hidden {
+            display: none;
+        }
+
+        /* animação de abertura */
+        .lightbox-inner {
+            max-width: 920px;
+            width: 100%;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: radial-gradient(circle at top, #26243a, #050814);
+            padding: 14px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transform: scale(0.96);
+            opacity: 0;
+            transition: transform 220ms ease, opacity 220ms ease;
+
+
+        }
+
+
+        .lightbox.open {
+            display: flex;
+            /* Certifique-se de que a lightbox esteja visível */
+        }
+
+        .lightbox.open .lightbox-inner {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .lightbox-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .lightbox-img-wrapper {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #00000033;
+        }
+
+        #lightbox-img {
+            width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+            background: #000;
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+        #lightbox-caption {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-top: 4px;
+        }
+
+        .lightbox-close {
+            border: none;
+            background: rgba(0, 0, 0, 0.65);
+            border-radius: 999px;
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background var(--transition-fast), transform var(--transition-fast);
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 75, 139, 0.75);
+            transform: scale(1.06);
+        }
+
+        /* setas de navegação */
+        .lightbox-nav {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            pointer-events: none;
+            /* para manter clique só nas setas */
+        }
+
+        .lightbox-arrow {
+            pointer-events: all;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            margin: 12px;
+            transition: transform 150ms ease, background 150ms ease;
+        }
+
+        .lightbox-arrow:hover {
+            transform: scale(1.06);
+            background: rgba(255, 75, 139, 0.85);
+        }
+
+        .lightbox-arrow.disabled {
+            opacity: 0.35;
+            cursor: default;
+            transform: none;
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--muted);
+            padding: 10px 0 18px;
+        }
+
+        footer span {
+            color: var(--accent-soft);
+        }
+
+        /* responsividade */
+        @media (max-width: 640px) {
+            .photo-card img {
+                height: 120px;
+            }
+
+            .lightbox-inner {
+                margin: 8px;
+            }
+
+            .lightbox-arrow {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        /* Ajustes para iPhone 15 Pro Max (largura CSS ≈ 430px) */
+        @media (max-width: 430px) {
+            :root {
+                --radius-lg: 12px;
+                --radius-xl: 16px;
+                --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.45);
+                --transition-fast: 0.14s;
+                --transition-med: 0.22s;
+            }
+
+            html,
+            body {
+                font-size: 15px;
+                /* texto mais legível em tela grande de celular */
+            }
+
+            header.topbar {
+                padding: 12px 5vw;
+            }
+
+            .tag-pill {
+                font-size: 0.60rem;
+                padding: 3px 8px;
+                text-align: center;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                margin: 10px 0 18px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.1rem;
+                line-height: 1.05;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+                max-width: none;
+            }
+
+            .hero-card {
+                padding: 12px;
+                border-radius: var(--radius-xl);
+            }
+
+            .hero-badges {
+                text-align: center;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+            main {
+                padding: 10px 5vw 36px;
+            }
+
+            .section-title {
+                font-size: 1.15rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.82rem;
+            }
+
+            .season-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .season-card {
+                padding: 10px;
+                border-radius: var(--radius-lg);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(1, 1fr);
+                gap: 10px;
+            }
+
+            .photo-card {
+                border-radius: 12px;
+                min-height: 120px;
+            }
+
+            /* para enquadrar melhor as miniaturas no celular */
+            .photo-card img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+                /* ocupa todo o cartão mantendo enquadramento */
+                padding: 0;
+                display: block;
+            }
+
+            .photo-caption {
+                font-size: 0.78rem;
+                padding: 6px 8px 8px;
+            }
+
+            /* Lightbox ajustada para tela de celular grande */
+            .lightbox-inner {
+                max-width: 96vw;
+                width: 96vw;
+                padding: 10px;
+                border-radius: 14px;
+            }
+
+            #lightbox-img {
+                max-height: 68vh;
+                object-fit: contain;
+                padding: 6px;
+                border-radius: 10px;
+            }
+
+            .lightbox-close {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+
+            .lightbox-arrow {
+                width: 40px;
+                height: 40px;
+                margin: 8px;
+            }
+
+            .lightbox-header {
+                font-size: 0.86rem;
+            }
+
+            footer {
+                font-size: 0.72rem;
+                padding-bottom: 18px;
+            }
+        }
+
+        /* Pequeno ajuste para telas entre 431px e 520px (tablets estreitos) */
+        @media (min-width: 431px) and (max-width: 520px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+        }
