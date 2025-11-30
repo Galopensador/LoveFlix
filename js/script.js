@@ -77,8 +77,7 @@
             12: {
                 title: "Temporada 12 — Novembro 2025",
                 images: [
-                    { src: "images/novembro/foto1.jpeg", caption: "Fechando o primeiro ano da nossa série favorita. 🎊" },
-                    { src: "images/novembro/foto2.jpeg", caption: "E que venham muitos episódios mais!" }
+                    { src: "images/novembro/foto1.jpeg", caption: "Fechando o primeiro ano da nossa série favorita. 🎊" }
                 ]
             }
         };
@@ -289,4 +288,5 @@
         });
 
         // Se quiser abrir automaticamente a temporada 1 ao carregar:
+
         // openSeason(1);
